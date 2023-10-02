@@ -33,16 +33,15 @@ body {
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="..">Système de gestion des
-					athletes</a>
+				<a class="navbar-brand" href="..">Système de gestion des athletes</a>
 			</div>
 		</div>
 	</nav>
 
-
 	<div class="container special">
 
 		<h2 class="h2">Ajout d'un nouvel athlete</h2>
+
 		<div>
 			<form method="post"
 				th:action="@{/saveAthlete}" th:object="${athlete}">
@@ -69,9 +68,18 @@ body {
 					</select>
 				</div>
 
+				<div class="form-group">
+					<label for="sport">Sport :</label>
+					<select id="sport" class="form-control" th:field="*{sport.id}">
+						<option value="">Sélectionnez un sport</option>
+						<option th:each="sport : ${listSport}" th:value="${sport.id}" th:text="${sport.nom}"></option>
+					</select>
+				</div>
 
 				<button type="submit" class="btn btn-primary">Créer</button>
+
 			</form>
+
 		</div>
 
 	</div>

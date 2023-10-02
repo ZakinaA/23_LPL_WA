@@ -2,8 +2,10 @@ package bts.sio.webapp.controller;
 
 import bts.sio.webapp.model.Athlete;
 import bts.sio.webapp.model.Pays;
+import bts.sio.webapp.model.Sport;
 import bts.sio.webapp.service.AthleteService;
 import bts.sio.webapp.service.PaysService;
+import bts.sio.webapp.service.SportService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +26,7 @@ public class AthleteController {
 
     @Autowired
     private PaysService paysService;
-
+    private SportService sportService;
     @GetMapping("/")
     public String home(Model model) {
         Iterable<Athlete> listAthletes = athleteservice.getAthletes();
@@ -36,9 +38,10 @@ public class AthleteController {
     public String createAthlete(Model model) {
         Athlete a = new Athlete();
         model.addAttribute("athlete", a);
-
+        Iterable<Sport> listSport = sportService.getSports();
         Iterable<Pays> listPays = paysService.getLesPays();
         model.addAttribute("listPays", listPays);
+        model.addAttribute("listSport", listSport);
 
         return "athlete/formNewAthlete";
     }
@@ -66,4 +69,6 @@ public class AthleteController {
         athleteservice.saveAthlete(athlete);
         return new ModelAndView("redirect:/");
     }
+
+
 }
