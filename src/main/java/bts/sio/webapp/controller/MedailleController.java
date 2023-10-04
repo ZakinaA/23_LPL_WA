@@ -1,12 +1,7 @@
 package bts.sio.webapp.controller;
-import bts.sio.webapp.model.Athlete;
 import bts.sio.webapp.model.Medaille;
-import bts.sio.webapp.model.Pays;
-import bts.sio.webapp.model.Sport;
-import bts.sio.webapp.service.AthleteService;
 import bts.sio.webapp.service.MedailleService;
-import bts.sio.webapp.service.PaysService;
-import bts.sio.webapp.service.SportService;
+
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +19,7 @@ public class MedailleController {
     @Autowired
     private MedailleService medailleservice;
 
-    @GetMapping("/")
+    @GetMapping("/medailles")
     public String home(Model model) {
         Iterable<Medaille> listMedailles = medailleservice.getMedailles();
         model.addAttribute("Medailles", listMedailles);
