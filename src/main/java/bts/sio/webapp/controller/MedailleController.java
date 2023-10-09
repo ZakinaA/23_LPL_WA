@@ -23,7 +23,7 @@ public class MedailleController {
     public String home(Model model) {
         Iterable<Medaille> listMedailles = medailleservice.getMedailles();
         model.addAttribute("Medailles", listMedailles);
-        return "home";
+        return "medaille/homeMedaille";
     }
 
     @GetMapping("/createMedaille")

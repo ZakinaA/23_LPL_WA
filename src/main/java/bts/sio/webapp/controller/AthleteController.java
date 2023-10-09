@@ -27,7 +27,7 @@ public class AthleteController {
     @Autowired
     private PaysService paysService;
     private SportService sportService;
-    @GetMapping("/athletes")
+    @GetMapping("/")
     public String home(Model model) {
         Iterable<Athlete> listAthletes = athleteservice.getAthletes();
         model.addAttribute("athletes", listAthletes);
