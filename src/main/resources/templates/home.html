@@ -48,6 +48,7 @@
 						<th>Nom</th>
 						<th>Date de naissance</th>
 						<th>Pays</th>
+						<th>Sport</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -56,11 +57,14 @@
 						<td colspan="3">Aucun athlète en base de données</td>
 					</tr>
 					<tr th:each="athlete: ${athletes}">
-						<td><span th:text="${athlete.prenom}"> Prenom </span></td>
-						<td><span th:text="${athlete.nom}"> Nom </span></td>
+
+						<td><a th:href="@{'/athlete/ConsultAthlete/' + ${athlete.id}}"><span th:text="${athlete.prenom}">Prenom</span></a></td>
+
+						<td><a th:href="@{'/athlete/ConsultAthlete/' + ${athlete.id}}"><span th:text="${athlete.nom}"> Nom </span></a></td>
 						<!--td><span th:text="${#dates.format(athlete.datenaiss, 'dd-MM-yyyy')}"> Nom </span></td-->
 						<td><span th:text="${#temporals.format(athlete.date_naissance, 'dd-MM-yyyy HH:mm')}"> Nom </span></td>
 						<td><span th:text="${athlete.pays.nom}"> Nom </span></td>
+						<td><span th:text="${athlete.sport.nom}"> Sport</span></td>
 						<td>
 							<a th:href="@{/updateAthlete/{id}(id=${athlete.id})}"><button class="btn btn-info">Modifier</button></a>
 							<a th:href="@{/deleteAthlete/{id}(id=${athlete.id})}"><button class="btn btn-danger">Supprimer</button></a>
