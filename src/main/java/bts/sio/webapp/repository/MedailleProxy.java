@@ -90,7 +90,7 @@ public class MedailleProxy {
      */
     public Medaille updateMedaille(Medaille e) {
         String baseApiUrl = props.getApiUrl();
-        String updateMedailleUrl = baseApiUrl + "/Medaille/" + e.getId();
+        String updateMedailleUrl = baseApiUrl + "/medaille/" + e.getId();
 
         RestTemplate restTemplate = new RestTemplate();
         HttpEntity<Medaille> request = new HttpEntity<Medaille>(e);

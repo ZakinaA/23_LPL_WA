@@ -26,11 +26,7 @@ public class AthleteController {
 
     @Autowired
     private PaysService paysService;
-
-
-    @Autowired
     private SportService sportService;
-
     @GetMapping("/")
     public String home(Model model) {
         Iterable<Athlete> listAthletes = athleteservice.getAthletes();
@@ -38,21 +34,13 @@ public class AthleteController {
         return "home";
     }
 
-    @GetMapping("/athlete/ConsultAthlete/{id}")
-    public String profilAthlete(@PathVariable("id") final int id, Model model) {
-        Athlete a = athleteservice.getAthlete(id);
-        model.addAttribute("athlete", a);
-        return "athlete/ConsultAthlete";
-
-    }
-
     @GetMapping("/createAthlete")
     public String createAthlete(Model model) {
         Athlete a = new Athlete();
         model.addAttribute("athlete", a);
+        Iterable<Sport> listSport = sportService.getSports();
         Iterable<Pays> listPays = paysService.getLesPays();
         model.addAttribute("listPays", listPays);
-        Iterable<Sport> listSport = sportService.getSports();
         model.addAttribute("listSport", listSport);
 
         return "athlete/formNewAthlete";
@@ -62,10 +50,6 @@ public class AthleteController {
     public String updateAthlete(@PathVariable("id") final int id, Model model) {
         Athlete a = athleteservice.getAthlete(id);
         model.addAttribute("athlete", a);
-        Iterable<Pays> listPays = paysService.getLesPays();
-        model.addAttribute("listPays", listPays);
-        Iterable<Sport> listSport = sportService.getSports();
-        model.addAttribute("listSport", listSport);
         return "athlete/formUpdateAthlete";
     }
 
@@ -77,9 +61,10 @@ public class AthleteController {
 
     @PostMapping("/saveAthlete")
     public ModelAndView saveAthlete(@ModelAttribute Athlete athlete) {
+        System.out.println("controller save=" + athlete.getNom());
         if(athlete.getId() != null) {
             Athlete current = athleteservice.getAthlete(athlete.getId());
-
+            athlete.setNom(current.getNom());
         }
         athleteservice.saveAthlete(athlete);
         return new ModelAndView("redirect:/");
