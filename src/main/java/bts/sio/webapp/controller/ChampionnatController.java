@@ -1,13 +1,8 @@
 package bts.sio.webapp.controller;
 
-import bts.sio.webapp.model.Athlete;
+
 import bts.sio.webapp.model.Championnat;
-import bts.sio.webapp.model.Pays;
-import bts.sio.webapp.model.Sport;
-import bts.sio.webapp.service.AthleteService;
 import bts.sio.webapp.service.ChampionnatService;
-import bts.sio.webapp.service.PaysService;
-import bts.sio.webapp.service.SportService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,7 +22,7 @@ public class ChampionnatController {
 
     /*mettre lien avec palmares*/
 
-    @GetMapping("/")
+    @GetMapping("/tt")
     public String home(Model model) {
         Iterable<Championnat> listChampionnat = championnatService.getChampionnats();
         model.addAttribute("championnat", listChampionnat);
