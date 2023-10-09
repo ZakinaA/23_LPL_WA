@@ -51,11 +51,27 @@
                 type="hidden" th:field="*{id}" class="form-control">
       </div>
       <div class="form-group">
-        <label for="prenomInput">libelle</label>
+        <label for="libelleInput">libelle</label>
         <input
                 type="text" th:field="*{libelle}" class="form-control" id="libelleInputInput"
                 aria-describedby="libelleInputHelp" placeholder="Saisir le libelle"> <small
               id="libelleInputHelp" class="form-text text-muted">Merci d'écrire le libelle du championnat</small>
+      </div>
+
+      <div class="form-group">
+        <label for="lieuInput">lieu</label>
+        <input
+                type="text" th:field="*{lieu}" class="form-control" id="lieuInputInput"
+                aria-describedby="lieuInputHelp" placeholder="Saisir le lieu"> <small
+              id="lieuInputHelp" class="form-text text-muted">Merci d'écrire le lieu du championnat</small>
+      </div>
+
+      <div class="form-group">
+        <label for="dateInput">date</label>
+        <input
+                type="text" th:field="*{dateChampionnat}" class="form-control" id="dateInputInput"
+                aria-describedby="dateInputHelp" placeholder="Saisir le date"> <small
+              id="dateInputHelp" class="form-text text-muted">Merci d'écrire la date du championnat</small>
       </div>
 
 
