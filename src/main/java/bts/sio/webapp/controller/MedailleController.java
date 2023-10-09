@@ -20,9 +20,9 @@ public class MedailleController {
     private MedailleService medailleservice;
 
     @GetMapping("/medailles")
-    public String home(Model model) {
+    public String medailles(Model model) {
         Iterable<Medaille> listMedailles = medailleservice.getMedailles();
-        model.addAttribute("Medailles", listMedailles);
+        model.addAttribute("medailles", listMedailles);
         return "medaille/homeMedaille";
     }
 
