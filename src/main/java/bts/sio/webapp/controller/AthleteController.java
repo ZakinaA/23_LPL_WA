@@ -49,7 +49,6 @@ public class AthleteController {
     public String createAthlete(Model model) {
         Athlete a = new Athlete();
         model.addAttribute("athlete", a);
-        /*Iterable<Sport> listSport = sportService.getSports();*/
         Iterable<Pays> listPays = paysService.getLesPays();
         model.addAttribute("listPays", listPays);
         Iterable<Sport> listSport = sportService.getSports();
@@ -77,10 +76,9 @@ public class AthleteController {
 
     @PostMapping("/saveAthlete")
     public ModelAndView saveAthlete(@ModelAttribute Athlete athlete) {
-        System.out.println("controller save=" + athlete.getNom());
         if(athlete.getId() != null) {
             Athlete current = athleteservice.getAthlete(athlete.getId());
-            athlete.setNom(current.getNom());
+
         }
         athleteservice.saveAthlete(athlete);
         return new ModelAndView("redirect:/");
