@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 public class Pays {
     private Integer id;
-    private String nom;
+    private String libelle;
 }

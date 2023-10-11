@@ -8,7 +8,7 @@ public class Championnat {
     private Integer id;
     private String libelle;
     private String lieu;
-    private String dateChampionnat;
+    private Integer dateChampionnat;
 
 
 }
