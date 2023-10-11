@@ -52,7 +52,6 @@ public class MedailleController {
         System.out.println("controller save=" + medaille.getLibelle());
         if(medaille.getId() != null) {
             Medaille current = medailleservice.getMedaille(medaille.getId());
-            medaille.setLibelle(current.getLibelle());
         }
         medailleservice.saveMedaille(medaille);
         return new ModelAndView("redirect:/medailles");
