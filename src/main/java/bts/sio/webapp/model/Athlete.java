@@ -12,7 +12,7 @@ public class Athlete {
     private String nom;
     private String prenom;
     private LocalDate dateNaissance ;
-    private String athleteImage;
+    private String image;
     private Pays pays;
     private Sport sport;
 

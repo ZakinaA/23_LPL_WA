@@ -33,7 +33,7 @@ public class AthleteService {
         athlete.setNom(athlete.getNom().toUpperCase());
         athlete.setPrenom(athlete.getPrenom());
         athlete.setDateNaissance(athlete.getDateNaissance());
-        athlete.setAthleteImage(athlete.getAthleteImage());
+        athlete.setImage(athlete.getImage());
 
         if(athlete.getId() == null) {
             // If id is null, then it is a new employee.
