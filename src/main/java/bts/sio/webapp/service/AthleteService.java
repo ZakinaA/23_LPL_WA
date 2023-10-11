@@ -28,11 +28,11 @@ public class AthleteService {
     public Athlete saveAthlete(Athlete athlete) {
         Athlete savedAthlete;
 
-        System.out.println("ATHMLETE prenom= " + athlete.getPrenom() + "NOM==" + athlete.getNom());
+        System.out.println("ATHLETE prenom= " + athlete.getPrenom() + "NOM==" + athlete.getNom());
 
         athlete.setNom(athlete.getNom().toUpperCase());
         athlete.setPrenom(athlete.getPrenom());
-        athlete.setDate_naissance(athlete.getDate_naissance());
+        athlete.setDateNaissance(athlete.getDateNaissance());
 
         if(athlete.getId() == null) {
             // If id is null, then it is a new employee.

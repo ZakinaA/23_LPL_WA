@@ -1,5 +1,8 @@
 package bts.sio.webapp.model;
 
+import lombok.Data;
+
+@Data
 public class Olympiade {
 
     private Integer id;

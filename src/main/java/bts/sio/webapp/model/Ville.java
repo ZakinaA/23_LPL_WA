@@ -1,5 +1,9 @@
 package bts.sio.webapp.model;
 
+import lombok.Data;
+
+@Data
+
 public class Ville {
 
     private Integer id;

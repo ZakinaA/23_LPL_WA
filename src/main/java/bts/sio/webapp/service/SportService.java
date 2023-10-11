@@ -20,8 +20,11 @@ public class SportService {
 
     public Sport saveSport(Sport sport){
         Sport savedSport;
+        sport.setNom(sport.getNom());
+        sport.setDescriptif(sport.getDescriptif());
+        sport.setOlympiade(sport.getOlympiade());
+        sport.setNomImage(sport.getNomImage());
 
-        sport.setDescriptif(sport.getDescriptif().toUpperCase());
 
         if(sport.getId() == null){
             savedSport = sportProxy.createSport(sport);

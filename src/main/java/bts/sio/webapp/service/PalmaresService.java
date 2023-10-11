@@ -20,7 +20,10 @@ public class PalmaresService {
 
     public Palmares savePalmares(Palmares palmares){
         Palmares savedPalmares;
-
+        palmares.setAthlete(palmares.getAthlete());
+        palmares.setVille(palmares.getVille());
+        palmares.setMedaille(palmares.getMedaille());
+        palmares.setChampionnat(palmares.getChampionnat());
         palmares.setAnnee(palmares.getAnnee());
 
         if(palmares.getId() == null) {

@@ -32,7 +32,10 @@ public class ChampionnatService {
         Championnat savedChampionnat;
 
         // Functional rule : Last name must be capitalized.
-        championnat.setLibelle(championnat.getLibelle().toUpperCase());
+        championnat.setLibelle(championnat.getLibelle());
+        championnat.setDateChampionnat(championnat.getDateChampionnat());
+        championnat.setLieu(championnat.getLieu());
+
 
         if(championnat.getId() == null) {
             // If id is null, then it is a new employee.
