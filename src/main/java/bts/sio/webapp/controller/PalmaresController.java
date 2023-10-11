@@ -1,10 +1,7 @@
 package bts.sio.webapp.controller;
 
-import bts.sio.webapp.model.Athlete;
-import bts.sio.webapp.model.Palmares;
-import bts.sio.webapp.model.Pays;
-import bts.sio.webapp.model.Sport;
-import bts.sio.webapp.service.PalmaresService;
+import bts.sio.webapp.model.*;
+import bts.sio.webapp.service.*;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +16,21 @@ import org.thymeleaf.templateparser.reader.ParserLevelCommentMarkupReader;
 @Data
 @Controller
 public class PalmaresController {
+
     @Autowired
     private PalmaresService palmaresService;
+
+    @Autowired
+    private AthleteService athleteService;
+
+    @Autowired
+    private MedailleService medailleService;
+
+    @Autowired
+    private VilleService villeService;
+
+    @Autowired
+    private ChampionnatService championnatService;
 
 
 
@@ -35,10 +45,14 @@ public class PalmaresController {
     public String createPalmares(Model model) {
         Palmares p = new Palmares();
         model.addAttribute("palmares", p);
-        /*Iterable<Sport> listSport = sportService.getSports();
-        Iterable<Pays> listPays = paysService.getLesPays();
-        model.addAttribute("listPays", listPays);
-        model.addAttribute("listSport", listSport);*/
+        Iterable<Athlete> listAthlete = athleteService.getAthletes();
+        model.addAttribute("listeAthlete", listAthlete);
+        Iterable<Medaille> listMedaille = medailleService.getMedailles();
+        model.addAttribute("listMedaile", listMedaille);
+        Iterable<Ville> listVille = villeService.getVilles();
+        model.addAttribute("listVille", listVille);
+        Iterable<Championnat> listChampionnat = championnatService.getChampionnats();
+        model.addAttribute("listchampionnat", listChampionnat);
 
         return "palmares/formNewPalmares";
     }
@@ -47,6 +61,14 @@ public class PalmaresController {
     public String updatePalmares(@PathVariable("id") final int id, Model model) {
         Palmares a = palmaresService.getPalmares(id);
         model.addAttribute("Palmares", a);
+        Iterable<Athlete> listAthlete = athleteService.getAthletes();
+        model.addAttribute("listeAthlete", listAthlete);
+        Iterable<Medaille> listMedaille = medailleService.getMedailles();
+        model.addAttribute("listMedaile", listMedaille);
+        Iterable<Ville> listVille = villeService.getVilles();
+        model.addAttribute("listVille", listVille);
+        Iterable<Championnat> listChampionnat = championnatService.getChampionnats();
+        model.addAttribute("listchampionnat", listChampionnat);
         return "palmares/formUpdatePalmares";
     }
 
