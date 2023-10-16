@@ -11,7 +11,8 @@ public class Athlete {
     private Integer id;
     private String nom;
     private String prenom;
-    private LocalDate date_naissance ;
+    private LocalDate dateNaissance;
+    private String image;
     private Pays pays;
     private Sport sport;
 
