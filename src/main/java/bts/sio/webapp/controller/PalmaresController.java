@@ -46,13 +46,13 @@ public class PalmaresController {
         Palmares p = new Palmares();
         model.addAttribute("palmares", p);
         Iterable<Athlete> listAthlete = athleteService.getAthletes();
-        model.addAttribute("listeAthlete", listAthlete);
+        model.addAttribute("listAthlete", listAthlete);
         Iterable<Medaille> listMedaille = medailleService.getMedailles();
-        model.addAttribute("listMedaile", listMedaille);
+        model.addAttribute("listMedaille", listMedaille);
         Iterable<Ville> listVille = villeService.getVilles();
         model.addAttribute("listVille", listVille);
         Iterable<Championnat> listChampionnat = championnatService.getChampionnats();
-        model.addAttribute("listchampionnat", listChampionnat);
+        model.addAttribute("listChampionnat", listChampionnat);
 
         return "palmares/formNewPalmares";
     }
@@ -62,19 +62,21 @@ public class PalmaresController {
         Palmares a = palmaresService.getPalmares(id);
         model.addAttribute("Palmares", a);
         Iterable<Athlete> listAthlete = athleteService.getAthletes();
-        model.addAttribute("listeAthlete", listAthlete);
+        model.addAttribute("listAthlete", listAthlete);
         Iterable<Medaille> listMedaille = medailleService.getMedailles();
-        model.addAttribute("listMedaile", listMedaille);
+        model.addAttribute("listMedaille", listMedaille);
         Iterable<Ville> listVille = villeService.getVilles();
         model.addAttribute("listVille", listVille);
         Iterable<Championnat> listChampionnat = championnatService.getChampionnats();
-        model.addAttribute("listchampionnat", listChampionnat);
+        model.addAttribute("listChampionnat", listChampionnat);
+
         return "palmares/formUpdatePalmares";
     }
 
     @GetMapping("/deletePalmares/{id}")
     public ModelAndView deletePalmares(@PathVariable("id") final int id) {
         palmaresService.deletePalmares(id);
+
         return new ModelAndView("redirect:/");
     }
 
@@ -83,9 +85,8 @@ public class PalmaresController {
         System.out.println("controller save=" + palmares.getAnnee());
         if(palmares.getId() != null) {
             Palmares current = palmaresService.getPalmares(palmares.getId());
-            palmares.setAnnee(current.getAnnee());
         }
         palmaresService.savePalmares(palmares);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/palmares");
     }
 }

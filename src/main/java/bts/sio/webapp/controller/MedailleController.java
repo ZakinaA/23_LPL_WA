@@ -23,7 +23,8 @@ public class MedailleController {
     public String medailles(Model model) {
         Iterable<Medaille> listMedailles = medailleservice.getMedailles();
         model.addAttribute("medailles", listMedailles);
-        return "medaille/homeMedaille";
+
+        return "medaille/listeMedailles";
     }
 
     @GetMapping("/createMedaille")
@@ -38,13 +39,15 @@ public class MedailleController {
     public String updateMedaille(@PathVariable("id") final int id, Model model) {
         Medaille a = medailleservice.getMedaille(id);
         model.addAttribute("medaille", a);
+
         return "medaille/formUpdateMedaille";
     }
 
     @GetMapping("/deleteMedaille/{id}")
     public ModelAndView deleteMedaille(@PathVariable("id") final int id) {
         medailleservice.deleteMedaille(id);
-        return new ModelAndView("redirect:/");
+
+        return new ModelAndView("redirect:/medailles");
     }
 
     @PostMapping("/saveMedaille")
@@ -52,9 +55,8 @@ public class MedailleController {
         System.out.println("controller save=" + medaille.getLibelle());
         if(medaille.getId() != null) {
             Medaille current = medailleservice.getMedaille(medaille.getId());
-            medaille.setLibelle(current.getLibelle());
         }
         medailleservice.saveMedaille(medaille);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/medailles");
     }
 }

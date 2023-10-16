@@ -14,14 +14,17 @@ public class AthleteService {
     private AthleteProxy athleteProxy;
 
     public Athlete getAthlete(final int id) {
+
         return athleteProxy.getAthlete(id);
     }
 
     public Iterable<Athlete> getAthletes() {
+
         return athleteProxy.getAthletes();
     }
 
     public void deleteAthlete(final int id) {
+
         athleteProxy.deleteAthlete(id);
     }
 

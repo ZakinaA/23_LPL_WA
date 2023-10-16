@@ -20,6 +20,7 @@ public class PalmaresService {
 
     public Palmares savePalmares(Palmares palmares){
         Palmares savedPalmares;
+        System.out.println("ATHLETE prenom= " + palmares.getAthlete() + "NOM==" + palmares.getVille());
         palmares.setAthlete(palmares.getAthlete());
         palmares.setVille(palmares.getVille());
         palmares.setMedaille(palmares.getMedaille());
@@ -27,10 +28,13 @@ public class PalmaresService {
         palmares.setAnnee(palmares.getAnnee());
 
         if(palmares.getId() == null) {
+            System.out.println("azeraratest");
             savedPalmares = palmaresProxy.createPalmares(palmares);
         }else {
+            System.out.println("azeraratest2");
             savedPalmares = palmaresProxy.updatePalmares(palmares);
         }
+        System.out.println("azeraratest3");
         return savedPalmares;
     }
 }

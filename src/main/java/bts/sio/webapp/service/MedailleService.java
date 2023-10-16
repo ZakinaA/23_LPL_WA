@@ -26,9 +26,7 @@ public class MedailleService {
     public Medaille saveMedaille(Medaille medaille) {
         Medaille savedMedaille;
 
-        // Functional rule : Last name must be capitalized.
         medaille.setLibelle(medaille.getLibelle());
-
 
         if(medaille.getId() == null) {
             // If id is null, then it is a new Medaille.

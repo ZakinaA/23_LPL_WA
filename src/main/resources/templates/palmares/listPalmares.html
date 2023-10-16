@@ -51,7 +51,7 @@
         <th>Annee</th>
         <th>Nom du Palmares</th>
         <th>Medaille obtenu</th>
-
+        <th>Ville</th>
       </tr>
       </thead>
       <tbody>
@@ -60,8 +60,7 @@
         <td><span th:text="${palmares.annee}"> Annee </span></td>
         <td><span th:text="${palmares.championnat.libelle}">Nom du Championnat</span></td>
         <td><span th:text="${palmares.medaille.libelle}">Medaille Obtenu</span></td>
-        <!--td><span th:text="${#dates.format(athlete.datenaiss, 'dd-MM-yyyy')}"> Nom </span></td-->
-        <!--<td><span th:text="${#temporals.format(championnat.date_championnat, 'dd-MM-yyyy HH:mm')}"> date_championnat </span></td> -->
+        <td><span th:text="${palmares.ville.nom}">Ville </span></td>
         <td>
           <a th:href="@{/updatePalmares/{id}(id=${palmares.id})}"><button class="btn btn-info">Modifier</button></a>
           <a th:href="@{/deletePalmares/{id}(id=${palmares.id})}"><button class="btn btn-danger">Supprimer</button></a>
