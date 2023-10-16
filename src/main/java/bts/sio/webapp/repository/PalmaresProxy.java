@@ -57,6 +57,7 @@ public class PalmaresProxy {
 
     public Palmares createPalmares(Palmares p) {
 
+        System.out.println("test1" + p.getVille().getId() + "annee" + p.getAnnee() + "athlete=" + p.getAthlete().getId());
         String baseApiUrl = props.getApiUrl();
         String createPalmaresUrl = baseApiUrl + "/palmares";
 

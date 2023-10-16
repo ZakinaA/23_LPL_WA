@@ -6,7 +6,7 @@ import lombok.Data;
 public class Palmares {
 
     private Integer id;
-    private String annee;
+    private Integer annee;
     private Athlete athlete;
     private Medaille medaille;
     private Championnat championnat;

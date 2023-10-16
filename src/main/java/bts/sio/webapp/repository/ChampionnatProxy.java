@@ -60,7 +60,7 @@ public class ChampionnatProxy {
     public Championnat createChampionnat(Championnat c) {
 
         String baseApiUrl = props.getApiUrl();
-        String createChampionnatUrl = baseApiUrl + "/championna";
+        String createChampionnatUrl = baseApiUrl + "/championnat";
 
         RestTemplate restTemplate = new RestTemplate();
         HttpEntity<Championnat> request = new HttpEntity<Championnat>(c);

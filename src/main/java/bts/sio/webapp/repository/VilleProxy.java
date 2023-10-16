@@ -1,8 +1,6 @@
 package bts.sio.webapp.repository;
 
 import bts.sio.webapp.CustomProperties;
-import bts.sio.webapp.model.Athlete;
-import bts.sio.webapp.model.Sport;
 import bts.sio.webapp.model.Ville;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

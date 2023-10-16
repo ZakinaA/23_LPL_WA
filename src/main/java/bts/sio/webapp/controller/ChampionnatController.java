@@ -47,9 +47,9 @@ public class ChampionnatController {
     }
 
     @GetMapping("/deleteChampionnat/{id}")
-    public ModelAndView deleteAthlete(@PathVariable("id") final int id) {
+    public ModelAndView deleteChampionnat(@PathVariable("id") final int id) {
         championnatService.deleteChampionnat(id);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:championnats");
     }
 
     @PostMapping("/saveChampionnat")
@@ -57,10 +57,9 @@ public class ChampionnatController {
         System.out.println("controller save=" + championnat.getLibelle());
         if(championnat.getId() != null) {
             Championnat current = championnatService.getChampionnat(championnat.getId());
-            championnat.setLibelle(current.getLibelle());
         }
         championnatService.saveChampionnat(championnat);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:championnats");
     }
 
 
