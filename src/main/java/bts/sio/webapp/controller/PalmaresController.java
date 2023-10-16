@@ -34,11 +34,11 @@ public class PalmaresController {
 
 
 
-    @GetMapping("/Palmares")
-    public String home(Model model) {
+    @GetMapping("/palmares")
+    public String palmares(Model model) {
         Iterable<Palmares> listPalmares = palmaresService.getPalmaress();
         model.addAttribute("palmares", listPalmares);
-        return "home";
+        return "palmares/listPalmares";
     }
 
     @GetMapping("/createPalmares")

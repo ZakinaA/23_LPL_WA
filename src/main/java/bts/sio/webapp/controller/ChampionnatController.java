@@ -22,11 +22,11 @@ public class ChampionnatController {
 
     /*mettre lien avec palmares*/
 
-    @GetMapping("/Championnat")
+    @GetMapping("/championnats")
     public String home(Model model) {
         Iterable<Championnat> listChampionnat = championnatService.getChampionnats();
         model.addAttribute("championnat", listChampionnat);
-        return "championnat/formListChampionnat";
+        return "championnat/ListChampionnat";
     }
 
     @GetMapping("/createChampionnat")

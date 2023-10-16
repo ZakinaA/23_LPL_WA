@@ -32,7 +32,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href=".">Profil Athlète</a>
+      <a class="navbar-brand" href="/">Retour</a>
     </div>
   </div>
 </nav>
@@ -60,10 +60,9 @@
 
         <td><span th:text="${athlete.prenom}"> Prenom </span></td>
         <td><span th:text="${athlete.nom}"> nom </span></td>
-        <td><span th:text="${athlete.date_naissance}"> datenaissance </span></td>
-        <td><span th:text="${athlete.pays.nom}"> Pays </span></td>
+        <td><span th:text="${athlete.dateNaissance}"> datenaissance </span></td>
+        <td><span th:text="${athlete.pays.libelle}"> Pays </span></td>
         <td><span th:text="${athlete.sport.nom}"> Sport </span></td>
-
       </tr>
       </tbody>
     </table>
