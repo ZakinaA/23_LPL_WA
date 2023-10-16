@@ -28,8 +28,12 @@ public class AthleteService {
     public Athlete saveAthlete(Athlete athlete) {
         Athlete savedAthlete;
 
-        // Functional rule : Last name must be capitalized.
+        System.out.println("ATHLETE prenom= " + athlete.getPrenom() + "NOM==" + athlete.getNom());
+
         athlete.setNom(athlete.getNom().toUpperCase());
+        athlete.setPrenom(athlete.getPrenom());
+        athlete.setDateNaissance(athlete.getDateNaissance());
+        athlete.setImage(athlete.getImage());
 
         if(athlete.getId() == null) {
             // If id is null, then it is a new employee.

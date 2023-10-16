@@ -33,33 +33,45 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/medailles">Retour</a>
+      <a class="navbar-brand" href="/championnats">Retour</a>
     </div>
   </div>
 </nav>
 
-
 <div class="container special">
 
-  <h2 class="h2">Modification d'un medaille</h2>
+  <h2 class="h2">Ajout un nouveau championnat</h2>
+
   <div>
     <form method="post"
-          th:action="@{/saveMedaille}" th:object="${medaille}">
+          th:action="@{/saveChampionnat}" th:object="${championnat}">
       <div class="form-group">
+        <label for="libelleInput">Libelle</label>
         <input
-                type="hidden" th:field="*{id}" class="form-control">
+                type="text" th:field="*{libelle}" class="form-control" id="LibelleInput"
+                aria-describedby="libelleHelp" placeholder="Saisir le libelle"> <small
+              id="libelleHelp" class="form-text text-muted">Merci d'écrire le libelle du championnat.</small>
       </div>
       <div class="form-group">
-        <label for="libelleInput">libelle</label>
+        <label for="lieuInput">lieu</label>
         <input
-                type="text" th:field="*{libelle}" class="form-control" id="libelleInputInput"
-                aria-describedby="libelleInputHelp" placeholder="Saisir le libelle"> <small
-              id="libelleInputHelp" class="form-text text-muted">Merci d'écrire le libelle de la medaille.</small>
+                type="text" th:field="*{lieu}" class="form-control" id="lieuInput"
+                aria-describedby="libelleHelp" placeholder="Saisir le lieu"> <small
+              id="lieuHelp" class="form-text text-muted">Merci d'écrire le lieu du championnat.</small>
       </div>
+<!--
+      <div class="form-group">
+        <label for="Palmares">Palmares :</label>
+        <select id="Palmares" class="form-control" th:field="*{palmares.id}">
+          <option value="">Sélectionnez un palmares</option>
+          <option th:each="sport : ${listPalmares}" th:value="${palmares.id}" th:text="${palmares.nom}"></option>
+        </select>
+      </div>
+-->
+      <button type="submit" class="btn btn-primary">Créer</button>
 
-
-      <button type="submit" class="btn btn-primary">Modifier</button>
     </form>
+
   </div>
 
 </div>

@@ -22,8 +22,9 @@
     body {
       padding-top: 50px;
     }
+
     .special {
-      padding-top:50px;
+      padding-top: 50px;
     }
   </style>
 </head>
@@ -32,42 +33,34 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Gestion des Athlètes</a>
-      <a class="navbar-brand" href="/medailles">Gestion des Medailles</a>
-      <a class="navbar-brand" href="/championnats">Gestion des Championnats</a>
-      <a class="navbar-brand" href="/palmares">Gestion des Palmares</a>
+      <a class="navbar-brand" href="/palmares">Retour</a>
     </div>
   </div>
 </nav>
-
-
 <div class="container special">
-  <h2 class="h2">Liste des medailles</h2>
-  <div class="table-responsive">
-    <table class="table table-striped table-sm">
-      <thead>
-      <tr>
-        <th>libelle</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr th:if="${medailles.empty}">
-        <td colspan="3">Aucune medaille en base de données</td>
-      </tr>
-      <tr th:each="medaille: ${medailles}">
-        <td><span th:text="${medaille.libelle}"> libelle </span></td>
-        <td>
-          <a th:href="@{/updateMedaille/{id}(id=${medaille.id})}"><button class="btn btn-info">Modifier</button></a>
-          <a th:href="@{/deleteMedaille/{id}(id=${medaille.id})}"><button class="btn btn-danger">Supprimer</button></a>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+
+  <h2 class="h2">Modification d'un palmares</h2>
+  <div>
+    <form method="post"
+          th:action="@{/savePalmares}" th:object="${palmares}">
+      <div class="form-group">
+        <input
+                type="hidden" th:field="*{id}" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="anneeInput">annee</label>
+        <input
+                type="text" th:field="*{annee}" class="form-control" id="anneeInputInput"
+                aria-describedby="anneeInputHelp" placeholder="Saisir l'année"> <small
+              id="anneeInputHelp" class="form-text text-muted">Merci d'écrire l'année du championnat.</small>
+      </div>
+
+
+      <button type="submit" class="btn btn-primary">Modifier</button>
+    </form>
   </div>
-  <h4><a th:href="@{/createMedaille}">Ajouter une nouvelle medaille</a></h4>
 
 </div>
-
 <script
         src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
