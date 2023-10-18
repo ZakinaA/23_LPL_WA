@@ -59,8 +59,8 @@ public class PalmaresController {
 
     @GetMapping("/updatePalmares/{id}")
     public String updatePalmares(@PathVariable("id") final int id, Model model) {
-        Palmares a = palmaresService.getPalmares(id);
-        model.addAttribute("Palmares", a);
+        Palmares p = palmaresService.getPalmares(id);
+        model.addAttribute("palmares", p);
         Iterable<Athlete> listAthlete = athleteService.getAthletes();
         model.addAttribute("listAthlete", listAthlete);
         Iterable<Medaille> listMedaille = medailleService.getMedailles();
@@ -77,7 +77,7 @@ public class PalmaresController {
     public ModelAndView deletePalmares(@PathVariable("id") final int id) {
         palmaresService.deletePalmares(id);
 
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/palmares");
     }
 
     @PostMapping("/savePalmares")
