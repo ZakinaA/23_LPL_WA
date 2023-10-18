@@ -94,7 +94,7 @@
 
 			$("tr").each(function() {
 				var athleteName = $(this).find("td:nth-child(2)").text().toLowerCase();
-				if (athleteName includes(searchQuery)) {
+				if (athleteName.includes(searchQuery)) {
 					$(this).show();
 				} else {
 					$(this).hide();

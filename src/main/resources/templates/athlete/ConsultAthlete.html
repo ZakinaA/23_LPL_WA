@@ -25,6 +25,19 @@
     .special {
       padding-top:50px;
     }
+    .photo {
+        float: left; /* Aligner la div à gauche */
+        margin-left: 10px; /* Ajouter une marge à gauche pour l'espace */
+    }
+
+    .photo img {
+        width: 150px; /* Définir la largeur de l'image */
+        height: 150px; /* Définir la hauteur de l'image */
+    }
+
+    .affiche {
+
+    }
   </style>
 </head>
 <body>
@@ -36,15 +49,25 @@
     </div>
   </div>
 </nav>
+
 <div class="container special">
 
-        <tr th:each="athlete: ${athlete}">
+    <div class="photo">
+        <img th:src="${athlete.image}">
+    </div>
+
+     <div class="affiche">
+
+         <tr th:each="athlete: ${athlete}">
 
         <p><B>Prénom : </B> <span th:text="${athlete.prenom}"> Prenom </span></p>
         <p><B>Nom : </B><span th:text="${athlete.nom}"> nom </span></p>
         <p><B>Age : </B><span th:text="${athlete.dateNaissance}" id="age"> datenaissance </span></p>
         <p><B>Pays : </B><span th:text="${athlete.pays.libelle}"> Pays </span></p>
         <p><B>Sport : </B><span th:text="${athlete.sport.nom}"> Sport </span></p>
+
+     </div>
+
 
 
 </div>
