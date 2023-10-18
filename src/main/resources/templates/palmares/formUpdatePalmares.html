@@ -2,98 +2,97 @@
 <html xmlns="http://www.w3.org/1999/xhml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
 
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-          crossorigin="anonymous">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
 
-    <title>Paris 2024</title>
+  <title>Paris 2024</title>
 
-    <style>
-        body {
-            padding-top: 50px;
-        }
+  <style>
+    body {
+      padding-top: 50px;
+    }
 
-        .special {
-            padding-top: 50px;
-        }
-    </style>
+    .special {
+      padding-top: 50px;
+    }
+  </style>
 </head>
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/palmares">Retour</a>
-        </div>
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/palmares">Retour</a>
     </div>
+  </div>
 </nav>
-
 <div class="container special">
 
-    <h2 class="h2">Modification d'un palmares</h2>
-    <div>
-        <form method="post"
-              th:action="@{/savePalmares}" th:object="${palmares}">
-            <div class="form-group">
-                <input
-                        type="hidden" th:field="*{id}" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="anneeInput">annee</label>
-                <input
-                        type="text" th:field="*{annee}" class="form-control" id="anneeInputInput"
-                        aria-describedby="anneeInputHelp" placeholder="Saisir l'année"> <small
-                    id="anneeInputHelp" class="form-text text-muted">Merci d'écrire l'année du championnat.</small>
-            </div>
+  <h2 class="h2">Modification d'un palmares</h2>
+  <div>
+    <form method="post"
+          th:action="@{/savePalmares}" th:object="${palmares}">
+      <div class="form-group">
+        <input
+                type="hidden" th:field="*{id}" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="anneeInput">annee</label>
+        <input
+                type="text" th:field="*{annee}" class="form-control" id="anneeInputInput"
+                aria-describedby="anneeInputHelp" placeholder="Saisir l'année"> <small
+              id="anneeInputHelp" class="form-text text-muted">Merci d'écrire l'année du championnat.</small>
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label for="ville">ville :</label>
+    <select id="ville" class="form-control" th:field="*{ville.id}">
+      <option value=""></option>
+      <option th:each="ville : ${listVille}" th:value="${ville.id}" th:text="${ville.nom}"></option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="Medailles">Medailles :</label>
+    <select id="Medailles" class="form-control" th:field="*{medaille.id}">
+      <option value=""></option>
+      <option th:each="medaille : ${listMedaille}" th:value="${medaille.id}" th:text="${medaille.libelle}"></option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="Athletes">Athlete :</label>
+    <select id="Athletes" class="form-control" th:field="*{athlete.id}">
+      <option value=""></option>
+      <option th:each="athlete : ${listAthlete}" th:value="${athlete.id}" th:text="${athlete.nom}"></option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="Championnats">Championnat :</label>
+    <select id="Championnats" class="form-control" th:field="*{championnat.id}">
+      <option value=""></option>
+      <option th:each="championnat : ${listChampionnat}" th:value="${championnat.id}" th:text="${championnat.libelle}"></option>
+    </select>
+  </div>
 
 
-    <div class="form-group">
-        <label for="ville">ville :</label>
-        <select id="ville" class="form-control" th:field="*{ville.id}">
-            <option value="">Sélectionnez une ville</option>
-            <option th:each="ville : ${listVille}" th:value="${ville.id}" th:text="${ville.nom}"></option>
-        </select>
-    </div>
 
-    <div class="form-group">
-        <label for="Medailles">Medailles :</label>
-        <select id="Medailles" class="form-control" th:field="*{medaille.id}">
-            <option value=""></option>
-            <option th:each="medaille : ${listMedaille}" th:value="${medaille.id}" th:text="${medaille.libelle}"></option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="Athletes">Athlete :</label>
-        <select id="Athletes" class="form-control" th:field="*{athlete.id}">
-            <option value=""></option>
-            <option th:each="athlete : ${listAthlete}" th:value="${athlete.id}" th:text="${athlete.nom}"></option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="Championnats">Championnat :</label>
-        <select id="Championnats" class="form-control" th:field="*{championnat.id}">
-            <option value=""></option>
-            <option th:each="championnat : ${listChampionnat}" th:value="${championnat.id}" th:text="${championnat.libelle}"></option>
-        </select>
-    </div>
-
-
-
-    <button type="submit" class="btn btn-primary">Modifier</button>
+      <button type="submit" class="btn btn-primary">Modifier</button>
     </form>
-</div>
+  </div>
 
 </div>
 <script
