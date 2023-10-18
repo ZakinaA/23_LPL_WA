@@ -105,7 +105,7 @@ public class MedailleProxy {
         return response.getBody();
     }
 
-    /*
+    /**
      * Delete an medaille using exchange method of RestTemplate
      * instead of delete method in order to log the response status code.
      * @param e The medaille to delete

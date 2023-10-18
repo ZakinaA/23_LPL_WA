@@ -16,10 +16,7 @@ public class VilleProxy {
     @Autowired
     private CustomProperties props;
 
-    /**
-     * Get all athletes
-     * @return An iterable of all sport
-     */
+
     public Iterable<Ville> getVilles() {
 
         String baseApiUrl = props.getApiUrl();
@@ -38,11 +35,7 @@ public class VilleProxy {
         return response.getBody();
     }
 
-    /**
-     * Get an athlete by the id
-     * @param id The id of the athlete
-     * @return The sport which matches the id
-     */
+
     public Ville getVille(int id) {
         String baseApiUrl = props.getApiUrl();
         String getVilleUrl = baseApiUrl + "/ville/" + id;
@@ -60,11 +53,7 @@ public class VilleProxy {
         return response.getBody();
     }
 
-    /**
-     * Add a new athlete
-     * @param a A new athlete (without an id)
-     * @return The sport full filled (with an id)
-     */
+
     public Ville createVille(Ville a) {
 
         String baseApiUrl = props.getApiUrl();
@@ -83,10 +72,7 @@ public class VilleProxy {
         return response.getBody();
     }
 
-    /**
-     * Update an athlete - using the PUT HTTP Method.
-     * @param e Existing athlete to update
-     */
+
     public Ville updateVille(Ville e) {
         String baseApiUrl = props.getApiUrl();
         String updateVilleUrl = baseApiUrl + "/ville/" + e.getId();
@@ -104,11 +90,7 @@ public class VilleProxy {
         return response.getBody();
     }
 
-    /*
-     * Delete an athlete using exchange method of RestTemplate
-     * instead of delete method in order to log the response status code.
-     * @param e The athlete to delete
-     */
+
     public void deleteVille(int id) {
         String baseApiUrl = props.getApiUrl();
         String deleteVilleUrl = baseApiUrl + "/ville/" + id;
