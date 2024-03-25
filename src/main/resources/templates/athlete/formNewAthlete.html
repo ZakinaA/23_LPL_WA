@@ -62,7 +62,7 @@ body {
 				<div class="form-group">
 					<label for="dateNaissanceInput">Date Naissance format (YYYY-MM-DD)</label>
 					<input
-							type="text" th:field="*{dateNaissance}" class="form-control" id="date_naissanceInputInput"
+							type="text" th:field="*{date_naissance}" class="form-control" id="date_naissanceInputInput"
 							aria-describedby="date_naissanceInputHelp" placeholder="Saisir la date de naissance"> <small
 						id="date de naissance InputHelp" class="form-text text-muted">Merci d'écrire la date de naissance de l'athlète.</small>
 				</div>
@@ -76,7 +76,7 @@ body {
 				<div class="form-group">
 					<label for="sport">Sport :</label>
 					<select id="sport" class="form-control" th:field="*{sport.id}">
-						<option value=""></option>
+						<option value="">Sélectionnez un sport</option>
 						<option th:each="sport : ${listSport}" th:value="${sport.id}" th:text="${sport.nom}"></option>
 					</select>
 				</div>

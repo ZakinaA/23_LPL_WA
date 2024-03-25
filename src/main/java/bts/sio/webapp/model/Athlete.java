@@ -11,12 +11,10 @@ public class Athlete {
     private Integer id;
     private String nom;
     private String prenom;
-    private LocalDate dateNaissance;
+    private LocalDate date_naissance;
     private String image;
     private Pays pays;
     private Sport sport;
-
-
 
 
 }

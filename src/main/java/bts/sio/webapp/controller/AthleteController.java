@@ -26,6 +26,8 @@ public class AthleteController {
 
     @Autowired
     private PaysService paysService;
+
+    @Autowired
     private SportService sportService;
     @GetMapping("/")
     public String home(Model model) {

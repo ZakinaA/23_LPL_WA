@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,6 +21,7 @@
 		body {
 			padding-top: 50px;
 		}
+
 		.special {
 			padding-top: 50px;
 		}
@@ -47,8 +47,8 @@
 	<div class="input-group">
 		<input type="text" id="searchInput" class="form-control" placeholder="Rechercher par nom">
 		<span class="input-group-btn">
-                <button class="btn btn-primary" id="searchButton">Rechercher</button>
-            </span>
+            <button class="btn btn-primary" id="searchButton">Rechercher</button>
+        </span>
 	</div>
 
 	<div class="table-responsive">
@@ -70,7 +70,7 @@
 			<tr th:each="athlete: ${athletes}">
 				<td><a th:href="@{'/athlete/ConsultAthlete/' + ${athlete.id}}"><span th:text="${athlete.prenom}">Prenom</span></a></td>
 				<td><a th:href="@{'/athlete/ConsultAthlete/' + ${athlete.id}}"><span th:text="${athlete.nom}"> Nom </span></a></td>
-				<td><span th:text="${#temporals.format(athlete.dateNaissance, 'dd-MM-yyyy HH:mm')}"> Nom </span></td>
+				<td><span th:text="${#temporals.format(athlete.date_naissance, 'dd-MM-yyyy HH:mm')}"> Date de naissance </span></td>
 				<td><span th:text="${athlete.pays.libelle}"> Libelle </span></td>
 				<td><span th:text="${athlete.sport.nom}"> Sport</span></td>
 				<td>
@@ -94,7 +94,7 @@
 
 			$("tr").each(function() {
 				var athleteName = $(this).find("td:nth-child(2)").text().toLowerCase();
-				if (athleteName includes(searchQuery)) {
+				if (athleteName.includes(searchQuery)) {
 					$(this).show();
 				} else {
 					$(this).hide();
