@@ -35,7 +35,7 @@ public class AthleteService {
 
         athlete.setNom(athlete.getNom().toUpperCase());
         athlete.setPrenom(athlete.getPrenom());
-        athlete.setDateNaissance(athlete.getDateNaissance());
+        athlete.setDate_naissance(athlete.getDate_naissance());
         athlete.setImage(athlete.getImage());
 
         if(athlete.getId() == null) {

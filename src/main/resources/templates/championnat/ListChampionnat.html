@@ -49,7 +49,7 @@
       <tr>
         <th>libelle</th>
         <th>lieu</th>
-        <th>Date de championnat</th>
+        <th>Année du championnat</th>
 
       </tr>
       </thead>
@@ -57,7 +57,7 @@
       <tr th:each="championnat: ${championnat}">
         <td><span th:text="${championnat.libelle}"> Libelle </span></td>
         <td><span th:text="${championnat.lieu}"> Lieu </span></td>
-        <td><span th:text="${championnat.dateChampionnat}">Date du Championnat</span></td>
+        <td><span th:text="${championnat.dateChampionnat}">Année du championnat</span></td>
         <!--td><span th:text="${#dates.format(athlete.datenaiss, 'dd-MM-yyyy')}"> Nom </span></td-->
         <!--<td><span th:text="${#temporals.format(championnat.date_championnat, 'dd-MM-yyyy HH:mm')}"> date_championnat </span></td> -->
         <td>

@@ -49,7 +49,7 @@ public class ChampionnatController {
     @GetMapping("/deleteChampionnat/{id}")
     public ModelAndView deleteChampionnat(@PathVariable("id") final int id) {
         championnatService.deleteChampionnat(id);
-        return new ModelAndView("redirect:championnats");
+        return new ModelAndView("redirect:/championnats");
     }
 
     @PostMapping("/saveChampionnat")
@@ -59,7 +59,7 @@ public class ChampionnatController {
             Championnat current = championnatService.getChampionnat(championnat.getId());
         }
         championnatService.saveChampionnat(championnat);
-        return new ModelAndView("redirect:championnats");
+        return new ModelAndView("redirect:/championnats");
     }
 
 
